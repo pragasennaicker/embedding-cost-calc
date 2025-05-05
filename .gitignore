@@ -172,3 +172,33 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# macOS file metadata
+.DS_Store
+
+# Editor directories
+.vscode/
+
+# Vim swap/edit files
+*.swp
+*.swo
+
+# Emacs backup files
+*~
+
+# dotenv local env vars
+.env.local
+.env.*.local
+
+# Local Jupyter kernels (if you use them)
+.ipynb_checkpoints/
+
+# Local scratch/test files
+*.tmp
+*.bak
+
+# Build artifacts from Poetry or pipenv (if you choose to ignore lockfiles)
+poetry.lock
+
+# Node/npm artifacts
+node_modules/

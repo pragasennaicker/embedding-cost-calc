@@ -1,2 +1,10 @@
-# embedding-cost-calc
-A lightweight Python library &amp; CLI to quickly estimate OpenAI embedding costs—supports rough (chars/4) and precise (tiktoken) token counts for multiple models.
+# Embed Cost Estimator
+
+A lightweight Python library and CLI to estimate OpenAI embedding costs.
+
+## Installation
+```bash
+pip install embed-cost-estimator
+
+## Usage
+embed-cost --chunks 1000 --chars 500 --precise

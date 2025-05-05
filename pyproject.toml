@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "embed-cost-estimator"
+name = "embedding-cost-calc"
 version = "0.1.0"
 description = "A lightweight Python library and CLI to estimate OpenAI embedding costs."
 authors = ["Pragasen Naicker <prag.naicker@example.com>"]

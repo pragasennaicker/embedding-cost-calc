@@ -24,7 +24,9 @@ def estimate_embedding_cost(
 
     if precise:
         # TODO: precise logic
-        avg_tokens = chunk_size_chars / 4  # fallback until tiktoken is integrated
+        avg_tokens = (
+            chunk_size_chars / 4
+        )  # fallback until tiktoken is integrated
     else:
         avg_tokens = chunk_size_chars / 4
 

@@ -27,7 +27,7 @@ flake8 = "*"
 black = "*"
 
 [tool.black]
-line-length = 88
+line-length = 79
 target-version = ['py313']
 skip-string-normalization = false
 

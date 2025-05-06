@@ -5,5 +5,7 @@ from embed_cost.estimator import estimate_embedding_cost
 def test_rough_estimate_default_model():
     # 10 chunks × (400 chars / 4) = 10 × 100 tokens = 1,000 tokens
     # At $0.0004 per 1k tokens → expected cost = 1,000 * 0.0004 / 1000 = $0.0004
-    cost = estimate_embedding_cost(num_chunks=10, chunk_size_chars=400, precise=False)
+    cost = estimate_embedding_cost(
+        num_chunks=10, chunk_size_chars=400, precise=False
+    )
     assert cost == approx(0.0004)

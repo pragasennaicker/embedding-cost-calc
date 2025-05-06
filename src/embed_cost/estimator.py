@@ -2,8 +2,7 @@ from typing import Dict
 
 # Default rates (USD per 1k tokens)
 MODEL_RATES: Dict[str, float] = {
-    "text-embedding-ada-002",
-    0.0004,
+    "text-embedding-ada-002": 0.0004,
     # TODO: add more rates here
 }
 

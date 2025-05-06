@@ -12,8 +12,9 @@ from .estimator import estimate_embedding_cost, MODEL_RATES
 @click.option(
     "--model",
     "-m",
-    type=click.Choice(list(MODEL_RATES.keys())),
+    type=click.Choice(list(MODEL_RATES)),
     default="text-embedding-ada-002",
+    help="Embedding model to use",
 )
 @click.option(
     "--precise", "-p", is_flag=True, help="Use precise token counting"

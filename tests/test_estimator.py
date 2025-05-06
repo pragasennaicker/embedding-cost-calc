@@ -11,4 +11,4 @@ def test_rough_estimate_default_model():
     cost = estimate_embedding_cost(
         num_chunks=10, chunk_size_chars=400, precise=False
     )
-    assert cost == approx(0.00010)
+    assert cost == approx(0.0001)

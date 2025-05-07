@@ -1,5 +1,5 @@
 from pytest import approx
-from embed_cost.estimator import estimate_embedding_cost
+from embed_cost import estimate_embedding_cost
 
 
 def test_rough_estimate_default_model():

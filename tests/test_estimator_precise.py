@@ -4,7 +4,8 @@ from embed_cost import estimate_embedding_cost
 
 def test_precise_counting():
     chunks = ["hello world", "token test"]
-    # encode with cl100k_base: "hello world" → 2 tokens, "token test" → 2 tokens (approx)
+    # encode with cl100k_base:
+    # "hello world" → 2 tokens, "token test" → 2 tokens (approx)
     cost = estimate_embedding_cost(
         num_chunks=0,           # ignored in precise mode
         precise=True,

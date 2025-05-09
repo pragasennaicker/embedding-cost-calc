@@ -25,6 +25,7 @@ click = "*"
 pytest = "*"
 flake8 = "*"
 black = "*"
+pytest-cov = "^6.1.1"
 
 [tool.black]
 line-length = 79

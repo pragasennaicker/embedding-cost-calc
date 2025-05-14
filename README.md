@@ -13,3 +13,10 @@ pip install embed-cost-estimator
 ```bash
 embed-cost --chunks 1000 --chars 500 --precise
 ```
+
+## Usage Examples
+#tbd
+
+
+## Contribution Guidelines
+#tbd

@@ -2,11 +2,11 @@
 name = "embedding-cost-calc"
 version = "0.1.0"
 description = "A lightweight Python library and CLI to estimate OpenAI embedding costs."
-authors = ["Pragasen Naicker <prag.naicker@example.com>"]
+authors = ["Pragasen Naicker <pnaicker.dev@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/pragnaic/embed-cost-estimator"
-repository = "https://github.com/pragnaic/embed-cost-estimator"
+homepage = "https://github.com/pragasennaicker/embedding-cost-calc"
+repository = "https://github.com/pragasennaicker/embedding-cost-calc"
 keywords = ["openai", "embed", "embedding", "cost", "estimation", "cli"]
 classifiers = [
     "Programming Language :: Python :: 3",

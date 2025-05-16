@@ -28,6 +28,11 @@ def main(chunks, chars, model):
     """
     Estimate OpenAI embedding cost using a simple chars/4 heuristic.
     """
+    if chunks < 1:
+        raise click.UsageError("`--chunks` must be a positive integer")
+    if chars < 1:
+        raise click.UsageError("`--chars` must be a positive integer")
+
     cost = estimate_embedding_cost(
         num_chunks=chunks,
         chunk_size_chars=chars,
@@ -35,7 +40,8 @@ def main(chunks, chars, model):
         precise=False,
     )
 
-    click.echo(f"Estimated embedding cost: ${cost:.6f}")
+    formatted = f"${cost:,.6f}"
+    click.echo(f"Estimated embedding cost: {formatted}")
 
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@ packages = [ { include = "embed_cost", from = "src" } ]
 [tool.poetry.dependencies]
 python = "^3.10"
 tiktoken = "*"
-click = "^8.1.8"
+click = ">=8.1.7,<9.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "*"
@@ -34,4 +34,3 @@ skip-string-normalization = false
 
 [tool.poetry.scripts]
 embed-cost = "embed_cost.cli:main"
-

@@ -1,7 +1,7 @@
+[![PyPI version](https://img.shields.io/pypi/v/embed-cost-estimator.svg)](https://pypi.org/project/embed-cost-estimator/)
+[![Build Status](https://github.com/pragasennaicker/embedding-cost-calc/actions/workflows/ci.yml/badge.svg)](https://github.com/pragasennaicker/embedding-cost-calc/actions)
+
 # Embed Cost Estimator
-![CI](https://github.com/pragasennaicker/embedding-cost-calc/actions/workflows/ci.yml/badge.svg)
-
-
 A lightweight Python library and CLI to estimate OpenAI embedding costs.
 
 ## Installation

@@ -5,11 +5,15 @@
 A lightweight Python library and CLI to estimate OpenAI embedding costs.
 
 ## Installation
+Install from PyPI:
+
 ```bash
 pip install embed-cost-estimator
 ```
 
-## CLI Usage (Rough Mode)
+## Basic CLI Usage
+Run a quick rough estimate (chars/4 heuristic):
+
 ```bash
 embed-cost --chunks <NUM_CHUNKS> --chars <AVG_CHARS_PER_CHUNK> [--model <MODEL>]
 
@@ -20,14 +24,28 @@ embed-cost --chunks <NUM_CHUNKS> --chars <AVG_CHARS_PER_CHUNK> [--model <MODEL>]
 #--model, -m  Embedding model choice (default: text-embedding-ada-002)
 ```
 
+## CLI Options
+
+| Option       | Shortcut | Type     | Default                  | Description                                 |
+|--------------|----------|----------|--------------------------|---------------------------------------------|
+| `--chunks`   | `-n`     | integer  | _required_               | Number of chunks for rough-mode estimate    |
+| `--chars`    | `-c`     | integer  | `500`                    | Average characters per chunk                |
+| `--model`    | `-m`     | choice   | `text-embedding-ada-002` | Embedding model to use (see `MODEL_RATES`)  |
+| `--help`     | —        | flag     | —                        | Show this help message and exit             |
 
 
-### Example:
+### Examples:
+### 1. Default model, custom sizes
 ```bash
-embed-cost --chunks 1_000 --chars 500
+embed-cost --chunks 1000 --chars 500
 #Estimated embedding cost: $0.050000
 ```
 
+### 2. Using a different model
+```bash
+embed-cost --chunks 500 --chars 300 --model text-embedding-3-small
+# Estimated embedding cost: $0.003000
+```
 
 ## Python API (Precise Mode)
 For exact token counts via `tiktoken`, import and call directly:
@@ -51,18 +69,13 @@ print(f"Precise cost: ${cost:.6f}")
 
 ```
 
-## Examples
+### Examples
 
-### 1. Quick Back-of-Envelope
-```bash
-embed-cost --chunks 500 --chars 400 --model text-embedding-3-small
-```
-
-### 2. Exact Token Count in Code
+### 1. Exact Token Count in Code
 ```python
 from embed_cost import estimate_embedding_cost
 
-# Suppose you've already split your document:
+# assuming your document is already split:
 chunked = ["Lorem ipsum…", "Dolor sit amet…", …]
 cost = estimate_embedding_cost(
     num_chunks=0,

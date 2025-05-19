@@ -1,6 +1,6 @@
 import pytest
 from click.testing import CliRunner
-from embed_cost import main  
+from embed_cost import main
 
 
 @pytest.fixture

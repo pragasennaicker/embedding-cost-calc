@@ -104,7 +104,7 @@ poetry run black --check .
 
 4. Maintain 100% test coverage for new code and adhere to Black/Flake8 style.
 
-Please see CONTRIBUTING.md (coming soon) for more details.
+Please see CONTRIBUTING.md for more details.
 
 ## License
 MIT © Pragasen Naicker

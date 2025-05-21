@@ -4,15 +4,17 @@
 # Embed Cost Estimator
 A lightweight Python library and CLI to estimate OpenAI embedding costs.
 
+
 ## Installation
 Install from PyPI:
+
 
 ```bash
 pip install embed-cost-estimator
 ```
 
-## Basic CLI Usage
-Run a quick rough estimate (chars/4 heuristic):
+## Basic CLI Usage (Rough Estimate)
+Run a quick rough estimate using a simple `chars/4` heuristic:
 
 ```bash
 embed-cost --chunks <NUM_CHUNKS> --chars <AVG_CHARS_PER_CHUNK> [--model <MODEL>]
@@ -24,14 +26,16 @@ embed-cost --chunks <NUM_CHUNKS> --chars <AVG_CHARS_PER_CHUNK> [--model <MODEL>]
 #--model, -m  Embedding model choice (default: text-embedding-ada-002)
 ```
 
+
 ## CLI Options
 
 | Option       | Shortcut | Type     | Default                  | Description                                 |
 |--------------|----------|----------|--------------------------|---------------------------------------------|
-| `--chunks`   | `-n`     | integer  | _required_               | Number of chunks for rough-mode estimate    |
+| `--chunks`   | `-n`     | integer  | _required_               | Number of chunks for rough estimate    |
 | `--chars`    | `-c`     | integer  | `500`                    | Average characters per chunk                |
 | `--model`    | `-m`     | choice   | `text-embedding-ada-002` | Embedding model to use (see `MODEL_RATES`)  |
 | `--help`     | —        | flag     | —                        | Show this help message and exit             |
+
 
 
 ### Examples:
@@ -47,8 +51,28 @@ embed-cost --chunks 500 --chars 300 --model text-embedding-3-small
 # Estimated embedding cost: $0.003000
 ```
 
-## Python API (Precise Mode)
-For exact token counts via `tiktoken`, import and call directly:
+
+## Python API
+You can call `estimate_embedding_cost()` in two mutually-exclusive ways:
+
+### 1. Rough estimate
+Rough estimate using a simple `chars/4` heuristic
+
+```python
+from embed_cost import estimate_embedding_cost
+
+cost = estimate_embedding_cost(
+    num_chunks=250,
+    chunk_size_chars=400,
+    model="text-embedding-3-small",
+)
+
+print(f"Rough cost: ${cost:.6f}")
+```
+
+### 2. Precise mode (exact token counts via `tiktoken`):
+For exact token counts via `tiktoken`, by passing your list of text chunks
+
 ```python
 from embed_cost import estimate_embedding_cost
 
@@ -60,16 +84,16 @@ chunked_docs = [
 ]
 
 cost = estimate_embedding_cost(
-    num_chunks=0,               # ignored in precise mode
-    model="text-embedding-ada-002",
-    precise=True,
     chunk_texts=chunked_docs,
+    model="text-embedding-ada-002",
 )
 print(f"Precise cost: ${cost:.6f}")
-
 ```
+> [!NOTE]
+> You must pass either `num_chunks` (for rough estimate) or `chunk_texts` (for precise), but not both. Omitting both or giving a non-positive `num_chunks` will raise a `ValueError`.
 
-### Examples
+
+### Example
 
 ### 1. Exact Token Count in Code
 ```python
@@ -78,12 +102,9 @@ from embed_cost import estimate_embedding_cost
 # assuming your document is already split:
 chunked = ["Lorem ipsum…", "Dolor sit amet…", …]
 cost = estimate_embedding_cost(
-    num_chunks=0,
-    precise=True,
     chunk_texts=chunked,
 )
 print(cost)  # e.g. 0.000320
-
 ```
 
 ## Contributing
@@ -100,7 +121,7 @@ poetry run flake8 src tests
 poetry run black --check .
 
 ```
-3. Open a pull request against main.
+3. Open a pull request against `main`.
 
 4. Maintain 100% test coverage for new code and adhere to Black/Flake8 style.
 

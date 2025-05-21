@@ -32,8 +32,8 @@ def estimate_embedding_cost(
             encoder = tiktoken.encoding_for_model(model)
         except Exception:
             encoder = tiktoken.get_encoding("cl100k_base")
-            total_tokens = sum(
-                len(encoder.encode(text)) for text in chunk_texts
+        total_tokens = sum(
+            len(encoder.encode(text)) for text in chunk_texts
             )
     else:
         # Rough mode

@@ -9,6 +9,6 @@ def test_rough_estimate_default_model():
     expected cost = 1,000 * 0.00010 / 1000 = $0.00010
     """
     cost = estimate_embedding_cost(
-        num_chunks=10, chunk_size_chars=400, precise=False
+        num_chunks=10, chunk_size_chars=400,
     )
     assert cost == approx(0.0001)

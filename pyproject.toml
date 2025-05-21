@@ -47,6 +47,7 @@ embed-cost = "embed_cost.cli:main"
 requires = ["poetry-core>=2.1.3"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.poetry]
 packages = [ { include = "embed_cost", from = "src" } ]
 
 [tool.poetry.group.dev.dependencies]

@@ -1,36 +1,64 @@
-[tool.poetry]
-name = "embedding-cost-calc"
+[project]
+name = "embedding-cost-estimator"
 version = "1.0.1"
 description = "A lightweight Python library and CLI to estimate OpenAI embedding costs."
-authors = ["Pragasen Naicker <pnaicker.dev@gmail.com>"]
-license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/pragasennaicker/embedding-cost-calc"
-repository = "https://github.com/pragasennaicker/embedding-cost-calc"
-keywords = ["openai", "embed", "embedding", "cost", "estimation", "cli"]
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Topic :: Software Development :: Libraries :: Python Modules",
+requires-python = ">=3.10, <4.0"
+license = {text = "MIT"}
+authors = [
+{ name = "Pragasen Naicker", email = "pnaicker.dev@gmail.com"}
 ]
 
-packages = [ { include = "embed_cost", from = "src" } ]
+keywords = [
+"openai",
+"embed",
+"embeddings",
+"tiktoken",
+"cost",
+"estimation",
+"cli"
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-tiktoken = "*"
-click = ">=8.1.7,<9.0.0"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+"tiktoken (>=0.9.0)",
+"click (>=8.1.7,<9.0.0)",
+]
+
+[project.urls]
+homepage = "https://github.com/pragasennaicker/embedding-cost-calc"
+repository = "https://github.com/pragasennaicker/embedding-cost-calc.git"
+documentation = "https://github.com/pragasennaicker/embedding-cost-calc#readme"
+
+[project.scripts]
+embed-cost = "embed_cost.cli:main"
+
+[build-system]
+requires = ["poetry-core>=2.1.3"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [ { include = "embed_cost", from = "src" } ]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "*"
 flake8 = "*"
 black = "*"
+tiktoken = "*"
+click = "^8.1.7"
 pytest-cov = "^6.1.1"
 
 [tool.black]
 line-length = 79
 target-version = ['py310']
 skip-string-normalization = false
-
-[tool.poetry.scripts]
-embed-cost = "embed_cost.cli:main"

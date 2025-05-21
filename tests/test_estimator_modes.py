@@ -10,7 +10,6 @@ def test_rough_mode_uses_chars_heuristic():
         num_chunks=3,
         chunk_size_chars=400,
         model="text-embedding-ada-002",
-        precise=False
     )
     expected = 300 * MODEL_RATES["text-embedding-ada-002"] / 1000
     assert cost == approx(expected)
@@ -26,8 +25,6 @@ def test_precise_mode_counts_exact_tokens():
 
     total_tokens = sum(len(encoder.encode(text)) for text in chunks)
     cost = estimate_embedding_cost(
-        num_chunks=0,
-        precise=True,
         model="text-embedding-ada-002",
         chunk_texts=chunks
     )
@@ -38,8 +35,6 @@ def test_precise_mode_counts_exact_tokens():
 def test_precise_mode_without_texts_raises():
     with raises(ValueError) as exc:
         estimate_embedding_cost(
-            num_chunks=5,
-            precise=True,
             model="text-embedding-ada-002",
             chunk_texts=None
         )
@@ -52,6 +47,5 @@ def test_unknown_model_raises_value_error():
             num_chunks=1,
             chunk_size_chars=100,
             model="nonexistent-model",
-            precise=False
         )
     assert "Unknown model" in str(exc.value)

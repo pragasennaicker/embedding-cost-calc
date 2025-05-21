@@ -6,8 +6,7 @@ from .estimator import estimate_embedding_cost, MODEL_RATES
 @click.option(
     "--chunks", "-n",
     type=int,
-    default=1,
-    show_default=True,
+    required=True,
     help="Number of chunks for rough-calculation estimate"
 )
 @click.option(
@@ -37,7 +36,6 @@ def main(chunks, chars, model):
         num_chunks=chunks,
         chunk_size_chars=chars,
         model=model,
-        precise=False,
     )
 
     formatted = f"${cost:,.6f}"

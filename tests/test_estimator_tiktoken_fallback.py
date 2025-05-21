@@ -12,8 +12,6 @@ def test_precise_mode_encoder_fallback(monkeypatch):
     # Now call in precise mode; it should catch the exception
     text = "hello world"
     cost = estimate_embedding_cost(
-        num_chunks=0,
-        precise=True,
         model="text-embedding-ada-002",
         chunk_texts=[text],
     )

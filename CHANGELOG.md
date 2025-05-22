@@ -15,3 +15,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
   - `estimate_embedding_cost()` rough & precise modes
   - `embed-cost` CLI for back-of-the-envelope calculations
   - PyPI packaging, CI, and basic tests
+
+## [1.0.1] – 2025-05-22
+
+### Added
+- Corrected package name in README.md

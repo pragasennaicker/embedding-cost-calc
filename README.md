@@ -1,4 +1,4 @@
-[![PyPI version](https://img.shields.io/pypi/v/embed-cost-estimator.svg)](https://pypi.org/project/embed-cost-estimator/)
+[![PyPI version](https://img.shields.io/pypi/v/embedding-cost-estimator.svg)](https://pypi.org/project/embedding-cost-estimator/)
 [![Build Status](https://github.com/pragasennaicker/embedding-cost-calc/actions/workflows/ci.yml/badge.svg)](https://github.com/pragasennaicker/embedding-cost-calc/actions)
 
 # Embed Cost Estimator
@@ -10,7 +10,7 @@ Install from PyPI:
 
 
 ```bash
-pip install embed-cost-estimator
+pip install embedding-cost-estimator
 ```
 
 ## Basic CLI Usage (Rough Estimate)
